@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Government e Marketplace National Public Procurement Portal</title>
+<title>GeM | Card Payment</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -238,104 +238,7 @@ function processPayment(){
 }
 </script>
 
-/* ===== FOOTER ===== */
-.gem-footer{
-    background:#ffffff;
-    padding:40px 0 0;
-    font-size:13px;
-    color:#555;
-}
-
-.gem-footer h6{
-    font-weight:700;
-    color:#000;
-    margin-bottom:15px;
-}
-
-.gem-footer a{
-    color:#666;
-    text-decoration:none;
-    display:block;
-    margin-bottom:8px;
-}
-
-.gem-footer a:hover{
-    text-decoration:underline;
-}
-
-.gem-footer-bottom{
-    background:#4a4a4a;
-    padding:20px 0;
-    text-align:center;
-}
-
-.gem-footer-bottom img{
-    height:40px;
-    margin:0 10px;
-}
-
-.gem-footer-last{
-    background:#2f2f2f;
-    color:#ddd;
-    font-size:12px;
-    padding:15px 0;
-}
-
-.social-icons img{
-    height:26px;
-    margin-left:8px;
-}
-</style>
-</head>
-
-<body>
-
-<!-- ================= PAYMENT SECTION ================= -->
-<div class="payment-wrapper">
-    <div class="payment-box">
-        <h4>Card Payment – GeM</h4>
-
-        <div class="form-group">
-            <label>Card Number</label>
-            <input type="text" class="form-control" placeholder="XXXX XXXX XXXX XXXX">
-        </div>
-
-        <div class="row">
-            <div class="col-xs-6 form-group">
-                <label>Expiry</label>
-                <input type="text" class="form-control" placeholder="MM/YY">
-            </div>
-            <div class="col-xs-6 form-group">
-                <label>CVV</label>
-                <input type="password" class="form-control" placeholder="***">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label>Card Holder Name</label>
-            <input type="text" class="form-control">
-        </div>
-
-        <button class="pay-btn" onclick="processPayment()">Pay Now</button>
-        <div id="status" class="status-msg"></div>
-    </div>
-</div>
-
-<script>
-function processPayment(){
-    var status = document.getElementById("status");
-    status.style.color = "#333";
-    status.innerHTML = "Processing payment, please wait...";
-
-    setTimeout(function(){
-        status.style.color = "red";
-        status.innerHTML =
-          "Payment Failed: Due to a technical issue at the card gateway, " +
-                "the transaction has been cancelled. No amount has been debited.";
-    }, 3000);
-}
-</script>
-    <!-- ================= FOOTER (LIKE SCREENSHOT) ================= -->
+<!-- ================= FOOTER ================= -->
 <footer class="gem-footer">
 <div class="container">
 <div class="row">
@@ -401,33 +304,6 @@ function processPayment(){
 <a href="#">Useful links</a>
 </div>
 
-</div>
-
-<p style="text-align:center;margin-top:20px;font-size:12px;">
-This site is designed, developed and maintained by Managed Service Provider and is owned by Government e Marketplace (GeM)
-</p>
-</div>
-
-<div class="gem-footer-bottom">
-<img src="https://assets-bg.gem.gov.in/resources/images/dept-commerce.png">
-<img src="https://assets-bg.gem.gov.in/resources/images/digital-india.png">
-<img src="https://assets-bg.gem.gov.in/resources/images/gem-india.jpg">
-<img src="https://assets-bg.gem.gov.in/resources/upload/shared_doc/stqc1_1651680670.png">
-</div>
-
-<div class="gem-footer-last">
-<div class="container">
-<div class="row">
-<div class="col-sm-9">
-Government e Marketplace is a 100 percent Government owned Section 8 company setup under the aegis of Department of Commerce, Ministry of Commerce and Industry.
-</div>
-<div class="col-sm-3 text-right social-icons">
-<img src="https://assets-bg.gem.gov.in/resources/images/facebook-icons.svg">
-<img src="https://assets-bg.gem.gov.in/resources/images/twitter-new-icon.png">
-<img src="https://assets-bg.gem.gov.in/resources/images/youtube_new-gem.svg">
-<img src="https://assets-bg.gem.gov.in/resources/images/inc-v1.svg">
-</div>
-</div>
 </div>
 </div>
 </footer>
