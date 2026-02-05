@@ -1,213 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Payment Demo – Government eMarketplace</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>GeM Style Header & Footer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f2f4f7;
-}
+    <style>
+        /* RESET */
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+        }
 
-/* HEADER */
-.header {
-    background: #0b3c5d;
-    color: #fff;
-    padding: 14px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.header h1 {
-    font-size: 18px;
-    margin: 0;
-}
-.header span {
-    font-size: 12px;
-    opacity: 0.8;
-}
+        a {
+            text-decoration: none;
+        }
 
-/* DEMO TAG */
-.demo-tag {
-    background: #ffc107;
-    color: #000;
-    text-align: center;
-    padding: 6px;
-    font-size: 13px;
-    font-weight: bold;
-}
+        /* HEADER */
+        .gem-header {
+            background: #004a99;
+            padding: 10px 0;
+            color: #fff;
+        }
 
-/* PAYMENT CARD */
-.container {
-    max-width: 420px;
-    margin: 40px auto;
-    background: #fff;
-    padding: 25px;
-    border-radius: 6px;
-    box-shadow: 0 0 12px rgba(0,0,0,0.08);
-}
-.container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #0b3c5d;
-}
+        .gem-container {
+            width: 95%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-label {
-    font-size: 13px;
-    font-weight: bold;
-}
-input {
-    width: 100%;
-    padding: 10px;
-    margin: 6px 0 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
+        .gem-logo img {
+            height: 45px;
+        }
 
-.row {
-    display: flex;
-    gap: 10px;
-}
+        .gem-nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
 
-button {
-    width: 100%;
-    padding: 12px;
-    background: #2c3e90;
-    border: none;
-    color: white;
-    font-size: 15px;
-    cursor: pointer;
-    border-radius: 4px;
-}
-button:hover {
-    background: #1f2e6a;
-}
+        .gem-nav ul li {
+            margin: 0 15px;
+        }
 
-/* ERROR MESSAGE */
-.error-box {
-    display: none;
-    margin-top: 20px;
-    padding: 12px;
-    background: #fdecea;
-    color: #b71c1c;
-    border: 1px solid #f5c6cb;
-    border-radius: 4px;
-    font-size: 14px;
-}
+        .gem-nav ul li a {
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 14px;
+        }
 
-/* FOOTER */
-.footer {
-    margin-top: 60px;
-    background: #f8f9fa;
-    padding: 20px;
-    font-size: 12px;
-    color: #555;
-}
-.footer-columns {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 15px;
-}
-.footer h4 {
-    margin-bottom: 8px;
-    font-size: 13px;
-    color: #000;
-}
-.footer p {
-    margin: 4px 0;
-}
-.footer-bottom {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 11px;
-    color: #777;
-}
-</style>
+        .gem-login a {
+            background: #ffcd00;
+            color: #000;
+            padding: 8px 18px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* BODY PLACEHOLDER */
+        .content {
+            min-height: 400px;
+            padding: 40px;
+            text-align: center;
+            color: #444;
+        }
+
+        /* FOOTER */
+        .gem-footer {
+            background: #f3f3f3;
+            border-top: 1px solid #ddd;
+            padding: 15px 0;
+            font-size: 13px;
+            color: #333;
+        }
+
+        .footer-links {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            color: #004a99;
+            font-weight: 500;
+        }
+
+        .footer-copy {
+            font-size: 12px;
+            color: #555;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .gem-container {
+                flex-direction: column;
+            }
+
+            .gem-nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .gem-nav ul li {
+                margin: 6px 0;
+            }
+
+            .gem-login {
+                margin-top: 10px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<div class="header">
-    <h1>Government e-Marketplace</h1>
-    <span>Secure Payment Gateway</span>
-</div>
+    <!-- HEADER -->
+    <header class="gem-header">
+        <div class="gem-container">
+            <div class="gem-logo">
+                <a href="https://gem.gov.in">
+                    <img src="https://gem.gov.in/assets/images/logo.png" alt="GeM Logo">
+                </a>
+            </div>
 
-<div class="demo-tag">
-    ⚠ DEMO / TRAINING INTERFACE — NO REAL PAYMENT IS PROCESSED
-</div>
+            <nav class="gem-nav">
+                <ul>
+                    <li><a href="https://gem.gov.in/aboutus">About GeM</a></li>
+                    <li><a href="https://gem.gov.in/support/government_oms_circulars">Policies</a></li>
+                    <li><a href="https://gem.gov.in/media">News & Events</a></li>
+                    <li><a href="https://gem.gov.in/userFaqs">FAQs</a></li>
+                    <li><a href="https://gem.gov.in/contactUs">Contact</a></li>
+                </ul>
+            </nav>
 
-<!-- PAYMENT FORM -->
-<div class="container">
-    <h2>Card Payment</h2>
-
-    <label>Card Number</label>
-    <input type="text" placeholder="XXXX XXXX XXXX XXXX">
-
-    <div class="row">
-        <div style="flex:1">
-            <label>Expiry</label>
-            <input type="text" placeholder="MM/YY">
+            <div class="gem-login">
+                <a href="https://gem.gov.in/signIn">Login</a>
+            </div>
         </div>
-        <div style="flex:1">
-            <label>CVV</label>
-            <input type="password" placeholder="***">
-        </div>
+    </header>
+
+    <!-- BODY CONTENT (OPTIONAL) -->
+    <div class="content">
+        <h2>Page Content Area</h2>
+        <p>This section can be replaced with payment page or any module.</p>
     </div>
 
-    <label>Card Holder Name</label>
-    <input type="text" placeholder="Name on Card">
+    <!-- FOOTER -->
+    <footer class="gem-footer">
+        <div class="gem-container" style="flex-direction: column;">
+            <div class="footer-links">
+                <a href="https://gem.gov.in/termsCondition">Terms of Use</a> |
+                <a href="https://gem.gov.in/websitePolicies">Privacy Policy</a> |
+                <a href="https://gem.gov.in/RTI">RTI</a> |
+                <a href="https://gem.gov.in/sitemap">Site Map</a>
+            </div>
 
-    <button onclick="processPayment()">Pay Now</button>
-
-    <div class="error-box" id="errorBox">
-        ❌ Due to a technical issue, your card payment was <b>not debited</b>.
-        <br>Please try again later or use another payment method.
-    </div>
-</div>
-
-<!-- FOOTER -->
-<div class="footer">
-    <div class="footer-columns">
-        <div>
-            <h4>Web Info</h4>
-            <p>Terms of Use</p>
-            <p>Website Policies</p>
-            <p>Document Help</p>
+            <div class="footer-copy">
+                © 2026 Government e-Marketplace (GeM). All Rights Reserved.
+            </div>
         </div>
-        <div>
-            <h4>Resources</h4>
-            <p>Handbook</p>
-            <p>Policies</p>
-            <p>Downloads</p>
-        </div>
-        <div>
-            <h4>Training</h4>
-            <p>LMS</p>
-            <p>Modules</p>
-            <p>Calendar</p>
-        </div>
-        <div>
-            <h4>Need Help?</h4>
-            <p>FAQs</p>
-            <p>Raise a Ticket</p>
-            <p>Contact Us</p>
-        </div>
-    </div>
-
-    <div class="footer-bottom">
-        © 2026 Demo Marketplace Interface | For Training & UI Demonstration Only
-    </div>
-</div>
-
-<script>
-function processPayment() {
-    document.getElementById("errorBox").style.display = "block";
-}
-</script>
+    </footer>
 
 </body>
 </html>
