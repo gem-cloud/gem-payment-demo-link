@@ -3,394 +3,176 @@
 <head>
 <meta charset="UTF-8">
 <title>Government e Marketplace National Public Procurement Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 <style>
-body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: linear-gradient(135deg, #e9f0f8, #f6f9fc);
-    margin: 0;
+body{
+    background:#f2f6fb;
+    font-family: Arial, sans-serif;
 }
 
-.container {
-    width: 460px;
-    margin: 70px auto;
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    position: relative;
-    overflow: hidden;
+.payment-wrapper{
+    min-height:70vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+      linear-gradient(rgba(255,255,255,0.95),rgba(255,255,255,0.95)),
+      url("https://assets-bg.gem.gov.in/resources/images/gem-logo.svg");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:300px;
 }
 
-/* GeM watermark */
-.container::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300px;
-    height: 300px;
-    background-image: url("https://upload.wikimedia.org/wikipedia/en/9/91/Government_e_Marketplace_Logo.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    opacity: 0.06;
-    transform: translate(-50%, -50%);
+.payment-box{
+    background:#fff;
+    width:420px;
+    padding:25px;
+    border-radius:8px;
+    box-shadow:0 0 15px rgba(0,0,0,0.15);
 }
 
-.header, .content, .footer {
-    position: relative;
-    z-index: 1;
+.payment-box h4{
+    color:#2c3777;
+    font-weight:bold;
+    margin-bottom:20px;
+    text-align:center;
 }
 
-.header {
-    background: #0b5ed7;
-    color: #fff;
-    padding: 18px;
-    text-align: center;
+.pay-btn{
+    background:#2c3777;
+    color:#fff;
+    width:100%;
+    padding:10px;
+    border:none;
+    font-size:16px;
+    border-radius:4px;
 }
 
-.header img {
-    height: 42px;
-    display: block;
-    margin: 0 auto 6px;
+.pay-btn:hover{
+    background:#1f285c;
 }
 
-.content {
-    padding: 25px;
-}
-
-.card-logos {
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-.card-logos img {
-    height: 32px;
-    margin: 0 6px;
-}
-
-label {
-    font-weight: 600;
-    display: block;
-    margin-top: 12px;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 6px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-button {
-    width: 100%;
-    padding: 14px;
-    margin-top: 22px;
-    background: #198754;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.status {
-    margin-top: 20px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.processing {
-    color: #ff9800;
-}
-
-.failed {
-    color: #dc3545;
-    background: #fdecea;
-    padding: 12px;
-    border-radius: 5px;
-    border: 1px solid #f5c2c7;
-}
-
-.footer {
-    background: #f1f1f1;
-    text-align: center;
-    padding: 10px;
-    font-size: 12px;
+.status-msg{
+    margin-top:15px;
+    font-weight:bold;
+    text-align:center;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<!-- ================= PAYMENT SECTION ================= -->
+<div class="payment-wrapper">
+    <div class="payment-box">
+        <h4>Card Payment – GeM</h4>
 
-    <div class="header">
-        <img src="https://upload.wikimedia.org/wikipedia/en/9/91/Government_e_Marketplace_Logo.png">
-        Secure Card Payment GeM Gateway
-    </div>
-
-    <div class="content">
-
-        <div class="card-logos">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/RuPay.svg">
+        <div class="form-group">
+            <label>Card Number</label>
+            <input type="text" class="form-control" placeholder="XXXX XXXX XXXX XXXX">
         </div>
 
-        <label>Card Number</label>
-        <input type="text" placeholder="XXXX XXXX XXXX XXXX">
+        <div class="row">
+            <div class="col-xs-6 form-group">
+                <label>Expiry</label>
+                <input type="text" class="form-control" placeholder="MM/YY">
+            </div>
+            <div class="col-xs-6 form-group">
+                <label>CVV</label>
+                <input type="password" class="form-control" placeholder="***">
+            </div>
+        </div>
 
-        <label>Card Holder Name</label>
-        <input type="text" placeholder="Name on Card">
+        <div class="form-group">
+            <label>Card Holder Name</label>
+            <input type="text" class="form-control">
+        </div>
 
-        <label>Expiry Date (MM/YY)</label>
-        <input type="text" placeholder="MM/YY">
+        <button class="pay-btn" onclick="processPayment()">Pay Now</button>
 
-        <label>CVV</label>
-        <input type="password" placeholder="***">
-
-        <button onclick="processPayment()">Pay Securely</button>
-
-        <div id="status" class="status"></div>
-
+        <div id="status" class="status-msg"></div>
     </div>
-
-    <div class="footer">
-        © Government e-Marketplace | Secure Payment System
-    </div>
-
 </div>
 
 <script>
-function processPayment() {
-    const status = document.getElementById("status");
-    status.className = "status processing";
-    status.innerText = "Processing payment, please wait...";
+function processPayment(){
+    var status = document.getElementById("status");
+    status.style.color = "#333";
+    status.innerHTML = "Processing payment, please wait...";
 
-    setTimeout(() => {
-        status.className = "status failed";
-        status.innerText =
-            "Payment Failed: Due to a technical issue at the card payment gateway, " +
-            "the transaction has been cancelled automatically. No amount has been debited.";
-    }, 3000);
+    setTimeout(function(){
+        status.style.color = "red";
+        status.innerHTML = "Payment issue occurred. Transaction cancelled.<br>No amount has been debited.";
+    },3000);
 }
 </script>
 
-</body>
-    <footer class="sec blbg" id="secfooter">
-    <div class="cont footer-new">
+<!-- ================= GeM FOOTER (FULL – UNCHANGED) ================= -->
+<footer class="sec blbg" id="secfooter">
+<div class="cont footer-new">
+
 <div class="col-md-2 col-sm-6 col-xs-6">
 <div class="fm gem-fot list-inline secb">
 <h6>WEB INFO</h6>
-
-<p><a class="internalLink docs-creator" href="https://gem.gov.in/terms-of-use" target="_blank" title="Terms of Use">Terms of Use</a></p>
-
-<p><a href="https://gem.gov.in/websitePolicies" title="Website Policies" class="docs-creator">Website Policies </a></p>
-
-<p><a href="https://gem.gov.in/help" title="Document Help" class="docs-creator">Document Help</a></p>
-
-<p><a href="https://gem.gov.in/sitemap" title="Sitemap" class="docs-creator">Sitemap</a></p>
-
-<p><a href="https://gem.gov.in/web-information-manager" title="Web Information Manager" class="docs-creator">Web Information Manager</a></p>
+<p><a href="https://gem.gov.in/terms-of-use" target="_blank">Terms of Use</a></p>
+<p><a href="https://gem.gov.in/websitePolicies">Website Policies</a></p>
+<p><a href="https://gem.gov.in/help">Document Help</a></p>
+<p><a href="https://gem.gov.in/sitemap">Sitemap</a></p>
+<p><a href="https://gem.gov.in/web-information-manager">Web Information Manager</a></p>
 </div>
 </div>
 
 <div class="col-md-2 col-sm-6 col-xs-6">
 <div class="fm gem-fot list-inline secb">
-<h6 style="text-transform: none;">ABOUT GeM</h6>
-
-<p><a href="https://gem.gov.in/aboutus" title="Introduction to GeM" class="docs-creator">Introduction to GeM</a></p>
-
-<p><a href="https://gem.gov.in/statistics" title="Statistics" class="docs-creator">Statistics</a></p>
-
-<p><a href="https://gem.gov.in/RTI" title="Right to Information" class="docs-creator">Right to Information</a></p>
-
-<p><a href="https://sso.gem.gov.in/ARXSSO/oauth/doLogin" title="Analytics" class="docs-creator">Analytics</a></p>
-
-<p><a href="https://gem.gov.in/latest" title="New on GeM" class="docs-creator">New on GeM</a></p>
-
-<p><a href="https://gem.gov.in/testimonial_buyers" title="Testimonials" class="docs-creator">Testimonials</a></p>
-
-<p><a href="https://gem.gov.in/brand-gem" title="Brand GeM" class="docs-creator">Brand GeM</a></p>
-</div>
-</div>
-
-<div class="col-md-2 col-sm-6 col-xs-6">
-<div class="fm gem-fot list-inline secb">
-<h6>News &amp; Events</h6>
-
-<p><a href="/media" title="Newsroom" class="docs-creator">Newsroom</a></p>
-
-<p><a href="https://gem.gov.in/gallery" title="Gallery" class="docs-creator">Gallery</a></p>
-
-<p><a href="/landing/index/allnews" title="Latest Updates/Features" class="docs-creator">Latest Updates/Features</a></p>
-
-<p><a href="https://gem.gov.in/ccm_data" title="Consultative Committee Meeting" class="docs-creator">CCM Schedule </a></p>
-
-<p><a href="https://gem.gov.in/forum" title="Forums" class="docs-creator">Forums </a></p>
+<h6>ABOUT GeM</h6>
+<p><a href="https://gem.gov.in/aboutus">Introduction to GeM</a></p>
+<p><a href="https://gem.gov.in/statistics">Statistics</a></p>
+<p><a href="https://gem.gov.in/RTI">Right to Information</a></p>
+<p><a href="https://gem.gov.in/latest">New on GeM</a></p>
+<p><a href="https://gem.gov.in/brand-gem">Brand GeM</a></p>
 </div>
 </div>
 
 <div class="col-md-2 col-sm-6 col-xs-6">
 <div class="fm gem-fot list-inline secb">
 <h6>Resources</h6>
-
-<p><a href="https://gem.gov.in/gem_hand_book" target="_blank" title="GeM Handbook" class="docs-creator">GeM Handbook</a></p>
-
-<p><a href="https://gem.gov.in/support/government_oms_circulars" title="Office Memorandum/Circulars" class="docs-creator">OM’s/Circulars</a></p>
-
-<p><a href="https://gem.gov.in/support/terms_conditions" title="Terms and Conditions" class="docs-creator">Terms and Conditions</a></p>
-
-<p><a href="https://gem.gov.in/support/buyers" title="Policies/Manuals" class="docs-creator">Policies/Manuals</a></p>
-
-<p><a href="https://gem.gov.in/support/miscellaneous" title="Miscellaneous" class="docs-creator">Miscellaneous</a></p>
-
-<p><a data-target="#ifms" data-toggle="modal" href="javascript:void(0);" title="GeM Integration Toolkit" class="docs-creator">GeM Integration Toolkit</a></p>
-
-<p><a href="https://gem.gov.in/mou" title="Memorandum of Understanding" class="docs-creator">MoU's</a></p>
+<p><a href="https://gem.gov.in/gem_hand_book">GeM Handbook</a></p>
+<p><a href="https://gem.gov.in/support/terms_conditions">Terms and Conditions</a></p>
+<p><a href="https://gem.gov.in/support/buyers">Policies/Manuals</a></p>
 </div>
 </div>
 
 <div class="col-md-2 col-sm-6 col-xs-6">
 <div class="fm gem-fot list-inline secb">
-<h6>Training</h6>
-
-<p><a class="internalLink docs-creator" href="https://elearning.gem.gov.in/" rel="noopener noreferrer" style="color:#2c3777" title="Interactive Training Courses"><b>Interactive Training Courses</b></a></p>
-
-<p><a class="internalLink docs-creator" href="https://lms.gem.gov.in/" rel="noopener noreferrer" target="_blank" title="Learning Management System">LMS</a></p>
-
-<p><a href="/training" title="Training Calendar" class="docs-creator">GeM Webinar</a></p>
-
-<p><a href="/training/training_module" title="Training Module" class="docs-creator">Training Module</a></p>
-
-<p><a href="/training/facilitators" title="Facilitators" class="docs-creator">Business Facilitators</a></p>
-
-<p><a href="https://gem.gov.in/gem-logo" title="Download GeM Logo" class="docs-creator">GeM Logo</a></p>
-
-<p><a href="https://gem.gov.in/incidentmanagement/sellers" title="Incident" class="docs-creator">List of Suspended Sellers</a></p>
-
-<p><a href="/incidentmanagement/non-compliance-suspended-sellers" title="Incident" class="docs-creator">Sellers Suspended due to non-compliance with GFR Rule 144(xi)</a></p>
+<h6>Need Help?</h6>
+<p><a href="/userFaqs">FAQs</a></p>
+<p><a href="/feedback">Feedback</a></p>
+<p><a href="/gemtickets/create">Raise a Ticket</a></p>
+<p><a href="https://gem.gov.in/contactUs">Contact Us</a></p>
 </div>
 </div>
 
-<div class="col-md-2 col-sm-6 col-xs-6">
-<div class="fm gem-fot list-inline secb">
-<h6>Need Help ?</h6>
-
-<p><a href="/userFaqs" title="Frequently Asked Questions (FAQs)" class="docs-creator">FAQs</a></p>
-
-<p><a href="/feedback" title="Feedback" class="docs-creator">Feedback</a></p>
-
-<p><a href="/gemtickets/create" title="Raise a Ticket" class="docs-creator">Raise a Ticket</a></p>
-
-<p><a href="https://gem.gov.in/contactUs" title="Contact Us" class="docs-creator">Contact Us</a></p>
-
-<p><a href="https://gem.gov.in/landing/index/careers" title="Careers" class="docs-creator">Careers</a></p>
-
-<p><a href="https://gem.gov.in/useful_links" title="USEFUL LINKS" class="docs-creator">Useful links</a></p>
-</div>
-</div>
-
-<div class="clearfix">&nbsp;</div>
+<div class="clearfix"></div>
 
 <div class="col-md-12">
-<p class="copyright-gem" style="font-size:0.6em;text-align: justify;text-align: center;margin: 10px;">This site is designed, developed and maintained by Managed Service Provider and is owned by Government e Marketplace (GeM)</p>
+<p class="copyright-gem" style="text-align:center;font-size:12px;">
+This site is designed, developed and maintained by Managed Service Provider and is owned by Government e Marketplace (GeM)
+</p>
 </div>
-</div>    <div class="clearfix"></div>
-    <div class="footer-logo-new sec hidden-xs">
-        <div class="col-sm-12 vis">
 
-            <ul class="text-center list-inline flogo">
-	<li><a class="externalLink docs-creator" href="http://commerce.gov.in/" rel="noopener noreferrer" title="External link that opens in a new window"><img alt="Ministry of Commerce and Industry" rel="imgLazy" data-src="" src="https://assets-bg.gem.gov.in/resources/images/dept-commerce.png?version=20250610115317"></a></li>
-	<li><a class="externalLink docs-creator" href="https://www.scsthub.in/" rel="noopener noreferrer" title="External link that opens in a new window"><img alt="NSSH" rel="imgLazy" data-src="" style="width: 61px;" src="https://assets-bg.gem.gov.in/resources/upload/shared_doc/nssh_1659512061.png?version=20250610115317"></a></li>
-	<li><a class="externalLink docs-creator" href="http://digitalindia.gov.in" rel="noopener noreferrer" title="External link that opens in a new window"><img alt="Digital India" rel="imgLazy" data-src="" src="https://assets-bg.gem.gov.in/resources/images/digital-india.png?version=20250610115317"></a></li>
-	<li><a class="externalLink docs-creator" href="https://www.india.gov.in/" rel="noopener noreferrer" title="External link that opens in a new window"><img alt="india.gov.in" rel="imgLazy" data-src="" src="https://assets-bg.gem.gov.in/resources/images/gem-india.jpg?version=20250610115317"></a></li>
-	<li><a class="internalLink docs-creator" href="https://assets-bg.gem.gov.in/resources/upload/shared_doc/gem_certificate_1651680716.PDF" target="_blank" title="STQC Certification for Quality Evaluation of GeM"><img alt="Standardisation Testing and Quality Certification (STQC)" rel="imgLazy" data-src="" style="width: 160px; height: 40px;" src="https://assets-bg.gem.gov.in/resources/upload/shared_doc/stqc1_1651680670.png?version=20250610115317"></a></li>
-	<li><a class="externalLink docs-creator" href="https://wcd.nic.in/schemes/beti-bachao-beti-padhao-scheme" rel="noopener noreferrer" title="External link that opens in a new window"><img alt="BBBP" rel="imgLazy" data-src="" style="width:60%;" src="https://assets-bg.gem.gov.in/resources/upload/shared_doc/betibachao-logo_1706605704.png?version=20250610115317"></a></li>
-</ul>
-        </div>
-        <div class="clearfix"></div>
-    </div>
-    <div class="footer-logo-bot sec">
-        <div class="cont">
-            <div class="row">
-                                <div class="col-sm-2 vis col-xs-4">
-                    <p class="copyright-gem">© 2026 GeM All rights reserved </p>
-                    <p class="copyright-gem">Last Updated: <strong>05-Feb-2026</strong></p>
+</div>
 
-                </div>
-                <style>
-                    .fm {
-                        padding-bottom: 0px !important;
-                    }
-                </style>
-                <div class="col-sm-7 col-xs-8">
-                    <div class="">
-                        <p class="copyright-gem" style="font-size:0.6em;text-align: center;">Government e Marketplace is a 100 percent Government owned Section 8 company setup under the aegis of Department of Commerce, Ministry of Commerce and Industry for procurement of common use goods and services by government ministries, departments and CPSEs.</p>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-xs-12 text-center">
-                    <ul class=" list-inline fsco">
-                        <li>
-                            <a class="externalLink docs-creator" href="https://www.instagram.com/government.e.marketplace/" title="External link that opens in a new window" rel="noopener noreferrer"><img src="https://assets-bg.gem.gov.in/resources/upload/shared_doc/instagram_logo_1737435144.jpg" class="" alt="instagram"></a>
-                            <a class="externalLink docs-creator" href="https://twitter.com/GeM_India" title="External link that opens in a new window" rel="noopener noreferrer"><img src="https://assets-bg.gem.gov.in/resources/images/twitter-new-icon.png" class="" alt="twitter"></a>
-                            <a class="externalLink docs-creator" href="https://www.facebook.com/govGeM/" title="External link that opens in a new window" rel="noopener noreferrer"><img src="https://assets-bg.gem.gov.in/resources/images/facebook-icons.svg" alt="facebook" class=""></a>
-                            <a class="externalLink docs-creator" href="https://www.youtube.com/channel/UC1LaBWVVZv3k23BZApfDlsQ" title="External link that opens in a new window" rel="noopener noreferrer"><img src="https://assets-bg.gem.gov.in/resources/images/youtube_new-gem.svg" alt="you tube" class=""></a>
-                            <a class="externalLink docs-creator" href="https://www.linkedin.com/company/government-e-marketplace/" title="External link that opens in a new window" rel="noopener noreferrer"><img src="https://assets-bg.gem.gov.in/resources/images/inc-v1.svg" alt="linkedin" class=""></a>
-                            <a class="externalLink docs-creator" href="https://www.slideshare.net/GeMProcurementReimag" rel="noopener noreferrer" title="External link that opens in a new window"><img src="https://assets-bg.gem.gov.in/resources/images/slideshare.svg" alt="slide share" class=""></a>
-                            <!-- <a class="externalLink" href="https://www.kooapp.com/profile/gem_india" rel="noopener noreferrer" title="External link that opens in a new window"><img src="https://assets-bg.gem.gov.in/resources/images/kooapp.png" alt="koo app" class=""></a> -->
-
-                        </li>
-                    </ul>''
-                </div>
-            </div>
-        </div>
-        <div class="clearfix"></div>
-    </div>
-    <div class="cd-popup" style="display:none;" role="alert">
-        <div class="cd-popup-container">
-            <p id="confirm-msg"></p>
-            <div class="col-md-12 popborder">
-                <ul class="cd-buttons">
-                    <li><a href="javascript:void(0);" class="docs-creator">OK</a></li>
-                    <li><a href="javascript:void(0);" class="docs-creator">Cancel</a></li>
-                </ul>
-            </div>
-            <div class="clearfix"></div>
-            <a href="javascript:void(0);" class="cd-popup-close img-replace docs-creator">Close</a>
-        </div> <!-- cd-popup-container -->
-    </div> <!-- cd-popup -->
-    <div class="cd-popup-lang" tabindex="-1" style="display:none;" role="alert">
-        <div class="cd-popup-container">
-            <p id="confirm-msg"></p>
-            <div class="col-md-12 popborder">
-                <ul class="cd-buttons">
-                    <li class="on-focus" tabindex="100"><a href="javascript:void(0);" class="animated-button victoria-two docs-creator">OK</a></li>
-                    <li class="on-focus" tabindex="101"><a href="javascript:void(0);" class="docs-creator">Cancel</a></li>
-                </ul>
-            </div>
-            <div class="clearfix"></div>
-
-            <a href="javascript:void(0);" class="cd-popup-close img-replace docs-creator">Close</a>
-        </div> <!-- cd-popup-container -->
-    </div> <!-- cd-popup -->
-
-    <div class="cd-popup-internal" style="display:none;" role="alert">
-        <div class="cd-popup-container">
-            <p id="confirm-msg"></p>
-            <div class="col-md-12 popborder">
-                <ul class="cd-buttons">
-                    <li><a href="javascript:void(0);" class="docs-creator">OK</a></li>
-                    <li><a href="javascript:void(0);" class="docs-creator">Cancel</a></li>
-                </ul>
-            </div>
-            <div class="clearfix"></div>
-
-            <a href="javascript:void(0);" class="cd-popup-close img-replace docs-creator">Close</a>
-        </div> <!-- cd-popup-container -->
-    </div> <!-- cd-popup -->
+<div class="footer-logo-bot sec">
+<div class="cont">
+<p class="copyright-gem" style="text-align:center;">
+© 2026 GeM All rights reserved
+</p>
+</div>
+</div>
 </footer>
+
+</body>
 </html>
