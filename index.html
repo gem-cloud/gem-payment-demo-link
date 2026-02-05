@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GeM Secure Card Payment</title>
+
+<style>
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #e9f0f8, #f6f9fc);
+    margin: 0;
+}
+
+.container {
+    width: 460px;
+    margin: 70px auto;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+/* GeM watermark */
+.container::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/9/9b/Government_e-Marketplace_logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    opacity: 0.06;
+    transform: translate(-50%, -50%);
+}
+
+.header, .content, .footer {
+    position: relative;
+    z-index: 1;
+}
+
+.header {
+    background: #0b5ed7;
+    color: #fff;
+    padding: 18px;
+    text-align: center;
+}
+
+.header img {
+    height: 42px;
+    display: block;
+    margin: 0 auto 6px;
+}
+
+.content {
+    padding: 25px;
+}
+
+.card-logos {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.card-logos img {
+    height: 32px;
+    margin: 0 6px;
+}
+
+label {
+    font-weight: 600;
+    display: block;
+    margin-top: 12px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 22px;
+    background: #198754;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.status {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.processing {
+    color: #ff9800;
+}
+
+.failed {
+    color: #dc3545;
+    background: #fdecea;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #f5c2c7;
+}
+
+.footer {
+    background: #f1f1f1;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Government_e-Marketplace_logo.png">
+        Secure Card Payment Gateway
+    </div>
+
+    <div class="content">
+
+        <div class="card-logos">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/RuPay-Logo.png">
+        </div>
+
+        <label>Card Number</label>
+        <input type="text" placeholder="XXXX XXXX XXXX XXXX">
+
+        <label>Card Holder Name</label>
+        <input type="text" placeholder="Name on Card">
+
+        <label>Expiry Date (MM/YY)</label>
+        <input type="text" placeholder="MM/YY">
+
+        <label>CVV</label>
+        <input type="password" placeholder="***">
+
+        <button onclick="processPayment()">Pay Securely</button>
+
+        <div id="status" class="status"></div>
+
+    </div>
+
+    <div class="footer">
+        © Government e-Marketplace | Secure Payment System
+    </div>
+
+</div>
+
+<script>
+function processPayment() {
+    const status = document.getElementById("status");
+    status.className = "status processing";
+    status.innerText = "Processing payment, please wait...";
+
+    setTimeout(() => {
+        status.className = "status failed";
+        status.innerText =
+            "Payment Failed: Due to a technical issue at the card payment gateway, " +
+            "the transaction has been cancelled automatically. No amount has been debited.";
+    }, 3000);
+}
+</script>
+
+</body>
+</html>
