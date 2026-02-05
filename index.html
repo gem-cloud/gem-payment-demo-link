@@ -1,3 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GeM | Payment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<style>
+/* ===== GLOBAL ===== */
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f2f6fb;
+}
+
+/* ===== HEADER ===== */
+.gem-topbar{
+    background:#062635;
+    color:#fff;
+    font-size:12px;
+    padding:6px 0;
+}
+.gem-topbar a{
+    color:#fff;
+    margin-right:15px;
+    text-decoration:none;
+}
+.gem-header{
+    background:#0b3446;
+    padding:10px 0;
+    color:#fff;
+}
+.gem-logo img{
+    height:45px;
+}
+.gem-search input{
+    width:100%;
+    padding:8px 15px;
+    border-radius:25px;
+    border:none;
+}
+.gem-nav a{
+    color:#fff;
+    font-size:13px;
+    margin-right:18px;
+    text-decoration:none;
+    font-weight:600;
+}
+.gem-subnav{
+    background:#072b3a;
+    padding:8px 0;
+}
+.gem-subnav a{
+    color:#fff;
+    margin-right:20px;
+    font-size:13px;
+    text-decoration:none;
+}
+
+/* ===== PAYMENT ===== */
+.payment-wrapper{
+    min-height:65vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+      linear-gradient(rgba(255,255,255,0.95),rgba(255,255,255,0.95)),
+      url("https://assets-bg.gem.gov.in/resources/images/gem-logo.svg");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:260px;
+}
+.payment-box{
+    background:#fff;
+    width:420px;
+    padding:25px;
+    border-radius:8px;
+    box-shadow:0 0 15px rgba(0,0,0,0.15);
+}
+.payment-box h4{
+    color:#2c3777;
+    font-weight:bold;
+    text-align:center;
+    margin-bottom:20px;
+}
+.pay-btn{
+    width:100%;
+    background:#2c3777;
+    color:#fff;
+    padding:10px;
+    border:none;
+    border-radius:4px;
+    font-size:16px;
+}
+.pay-btn:hover{
+    background:#1f285c;
+}
+.status-msg{
+    margin-top:15px;
+    font-weight:bold;
+    text-align:center;
+}
+
 /* ===== FOOTER ===== */
 .gem-footer{
     background:#ffffff;
@@ -5,42 +110,35 @@
     font-size:13px;
     color:#555;
 }
-
 .gem-footer h6{
     font-weight:700;
     color:#000;
     margin-bottom:15px;
 }
-
 .gem-footer a{
     color:#666;
     text-decoration:none;
     display:block;
     margin-bottom:8px;
 }
-
 .gem-footer a:hover{
     text-decoration:underline;
 }
-
 .gem-footer-bottom{
     background:#4a4a4a;
     padding:20px 0;
     text-align:center;
 }
-
 .gem-footer-bottom img{
     height:40px;
     margin:0 10px;
 }
-
 .gem-footer-last{
     background:#2f2f2f;
     color:#ddd;
     font-size:12px;
     padding:15px 0;
 }
-
 .social-icons img{
     height:26px;
     margin-left:8px;
@@ -50,35 +148,94 @@
 
 <body>
 
-<!-- ================= PAYMENT SECTION ================= -->
+<!-- ================= HEADER ================= -->
+<div class="gem-topbar">
+<div class="container">
+<div class="row">
+<div class="col-sm-8">
+<a href="#">English</a>
+<a href="#">Dark Mode</a>
+<a href="#">Font Size A- A A+</a>
+<a href="#">Skip to Main Content</a>
+</div>
+<div class="col-sm-4 text-right">
+<a href="#">Raise a Ticket</a>
+<a href="#">Need Help?</a>
+</div>
+</div>
+</div>
+</div>
+
+<div class="gem-header">
+<div class="container">
+<div class="row" style="display:flex;align-items:center;">
+<div class="col-sm-3 gem-logo">
+<img src="https://assets-bg.gem.gov.in/resources/images/gem-logo.svg">
+</div>
+<div class="col-sm-6 gem-search">
+<input type="text" placeholder="Looking for something on GeM?">
+</div>
+<div class="col-sm-3 text-right gem-nav">
+<a href="#">Forward Auction</a>
+<a href="#">Bids</a>
+<a href="#">Sign Up</a>
+<a href="#">Login</a>
+</div>
+</div>
+
+<div class="row" style="margin-top:10px;">
+<div class="col-sm-12 gem-nav">
+<a href="#">PRODUCTS</a>
+<a href="#">SERVICES</a>
+<a href="#">CONTENT</a>
+<a href="#">INTERACTIVE TRAINING COURSES</a>
+</div>
+</div>
+</div>
+</div>
+
+<div class="gem-subnav">
+<div class="container">
+<a href="#">☰ Categories</a>
+<a href="#">Features & Benefits</a>
+<a href="#">Business Opportunities</a>
+<a href="#">Seller On GeM</a>
+<a href="#">View Contracts</a>
+<a href="#">CPPP</a>
+<a href="#">ODOP</a>
+<span style="float:right;">🔔 New on GeM</span>
+</div>
+</div>
+
+<!-- ================= PAYMENT ================= -->
 <div class="payment-wrapper">
-    <div class="payment-box">
-        <h4>Card Payment – GeM</h4>
+<div class="payment-box">
+<h4>Card Payment – GeM</h4>
 
-        <div class="form-group">
-            <label>Card Number</label>
-            <input type="text" class="form-control" placeholder="XXXX XXXX XXXX XXXX">
-        </div>
+<div class="form-group">
+<label>Card Number</label>
+<input type="text" class="form-control" placeholder="XXXX XXXX XXXX XXXX">
+</div>
 
-        <div class="row">
-            <div class="col-xs-6 form-group">
-                <label>Expiry</label>
-                <input type="text" class="form-control" placeholder="MM/YY">
-            </div>
-            <div class="col-xs-6 form-group">
-                <label>CVV</label>
-                <input type="password" class="form-control" placeholder="***">
-            </div>
-        </div>
+<div class="row">
+<div class="col-xs-6 form-group">
+<label>Expiry</label>
+<input type="text" class="form-control" placeholder="MM/YY">
+</div>
+<div class="col-xs-6 form-group">
+<label>CVV</label>
+<input type="password" class="form-control" placeholder="***">
+</div>
+</div>
 
-        <div class="form-group">
-            <label>Card Holder Name</label>
-            <input type="text" class="form-control">
-        </div>
+<div class="form-group">
+<label>Card Holder Name</label>
+<input type="text" class="form-control">
+</div>
 
-        <button class="pay-btn" onclick="processPayment()">Pay Now</button>
-        <div id="status" class="status-msg"></div>
-    </div>
+<button class="pay-btn" onclick="processPayment()">Pay Now</button>
+<div id="status" class="status-msg"></div>
+</div>
 </div>
 
 <script>
@@ -90,12 +247,12 @@ function processPayment(){
     setTimeout(function(){
         status.style.color = "red";
         status.innerHTML =
-          "Payment Failed: Due to a technical issue at the card gateway, " +
-                "the transaction has been cancelled. No amount has been debited.";
-    }, 3000);
+        "Payment issue occurred. Transaction cancelled.<br>No amount has been debited.";
+    },3000);
 }
 </script>
-    <!-- ================= FOOTER (LIKE SCREENSHOT) ================= -->
+
+<!-- ================= FOOTER ================= -->
 <footer class="gem-footer">
 <div class="container">
 <div class="row">
