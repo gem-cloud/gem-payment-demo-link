@@ -8,6 +8,82 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 <style>
+    /* ===== GeM HEADER STYLES ===== */
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Top bar */
+.gem-topbar {
+  background: #062b3a;
+  color: #ffffff;
+  font-size: 13px;
+  padding: 6px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Main header */
+.gem-main-header {
+  background: #0b3d4f;
+  display: flex;
+  align-items: center;
+  padding: 15px 30px;
+  gap: 30px;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+}
+
+.logo-area img {
+  height: 42px;
+}
+
+.logo-text span {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.search-area {
+  flex: 1;
+}
+
+.search-area input {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+}
+
+.header-links {
+  color: #ffffff;
+  display: flex;
+  gap: 18px;
+  font-size: 14px;
+}
+
+/* Navigation bar */
+.gem-nav {
+  background: #062b3a;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.gem-nav span {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
 /* ===== GLOBAL ===== */
 body{
     margin:0;
@@ -15,49 +91,58 @@ body{
     background:#f2f6fb;
 }
 
-/* ===== HEADER ===== */
-.gem-topbar{
-    background:#062635;
-    color:#fff;
-    font-size:12px;
-    padding:6px 0;
-}
-.gem-topbar a{
-    color:#fff;
-    margin-right:15px;
-    text-decoration:none;
-}
-.gem-header{
-    background:#0b3446;
-    padding:10px 0;
-    color:#fff;
-}
-.gem-logo img{
-    height:45px;
-}
-.gem-search input{
-    width:100%;
-    padding:8px 15px;
-    border-radius:25px;
-    border:none;
-}
-.gem-nav a{
-    color:#fff;
-    font-size:13px;
-    margin-right:18px;
-    text-decoration:none;
-    font-weight:600;
-}
-.gem-subnav{
-    background:#072b3a;
-    padding:8px 0;
-}
-.gem-subnav a{
-    color:#fff;
-    margin-right:20px;
-    font-size:13px;
-    text-decoration:none;
-}
+<!-- ===== GeM HEADER START ===== -->
+
+<!-- Top Utility Bar -->
+<div class="gem-topbar">
+  <div class="left">
+    English ▾ &nbsp; | &nbsp; 🌙 Dark Mode &nbsp; | &nbsp; Font Size A- A A+ &nbsp; | &nbsp; Skip to Main Content
+  </div>
+  <div class="right">
+    Raise a Ticket &nbsp; | &nbsp; Need Help ? ▾
+  </div>
+</div>
+
+<!-- Main Header -->
+<div class="gem-main-header">
+  <div class="logo-area">
+    <img src="gem-logo.png" alt="GeM Logo">
+    <div class="logo-text">
+      <strong>GeM</strong><br>
+      <span>Government e Marketplace</span>
+    </div>
+  </div>
+
+  <div class="search-area">
+    <input type="text" placeholder="Looking for something on GeM?">
+  </div>
+
+  <div class="header-links">
+    <span>Forward Auction ▾</span>
+    <span>Bids ▾</span>
+    <span>Sign Up ▾</span>
+    <span>Login</span>
+  </div>
+</div>
+
+<!-- Navigation Bar -->
+<div class="gem-nav">
+  <div class="nav-left">
+    ☰ Categories
+    <span>Features & Benefits ▾</span>
+    <span>Business Opportunities ▾</span>
+    <span>Seller On GeM ▾</span>
+    <span>View Contracts ▾</span>
+    <span>CPPP ▾</span>
+    <span>ODOP</span>
+  </div>
+
+  <div class="nav-right">
+    🔔 New on GeM
+  </div>
+</div>
+
+<!-- ===== GeM HEADER END ===== -->
 
 /* ===== PAYMENT ===== */
 .payment-wrapper{
