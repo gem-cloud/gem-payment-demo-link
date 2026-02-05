@@ -8,11 +8,14 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 <style>
+/* ===== PAGE ===== */
 body{
-    background:#f2f6fb;
+    margin:0;
     font-family: Arial, sans-serif;
+    background:#f2f6fb;
 }
 
+/* ===== PAYMENT ===== */
 .payment-wrapper{
     min-height:70vh;
     display:flex;
@@ -23,7 +26,7 @@ body{
       url("https://assets-bg.gem.gov.in/resources/images/gem-logo.svg");
     background-repeat:no-repeat;
     background-position:center;
-    background-size:300px;
+    background-size:280px;
 }
 
 .payment-box{
@@ -37,18 +40,18 @@ body{
 .payment-box h4{
     color:#2c3777;
     font-weight:bold;
-    margin-bottom:20px;
     text-align:center;
+    margin-bottom:20px;
 }
 
 .pay-btn{
+    width:100%;
     background:#2c3777;
     color:#fff;
-    width:100%;
     padding:10px;
     border:none;
-    font-size:16px;
     border-radius:4px;
+    font-size:16px;
 }
 
 .pay-btn:hover{
@@ -59,6 +62,54 @@ body{
     margin-top:15px;
     font-weight:bold;
     text-align:center;
+}
+
+/* ===== FOOTER ===== */
+.gem-footer{
+    background:#ffffff;
+    padding:40px 0 0;
+    font-size:13px;
+    color:#555;
+}
+
+.gem-footer h6{
+    font-weight:700;
+    color:#000;
+    margin-bottom:15px;
+}
+
+.gem-footer a{
+    color:#666;
+    text-decoration:none;
+    display:block;
+    margin-bottom:8px;
+}
+
+.gem-footer a:hover{
+    text-decoration:underline;
+}
+
+.gem-footer-bottom{
+    background:#4a4a4a;
+    padding:20px 0;
+    text-align:center;
+}
+
+.gem-footer-bottom img{
+    height:40px;
+    margin:0 10px;
+}
+
+.gem-footer-last{
+    background:#2f2f2f;
+    color:#ddd;
+    font-size:12px;
+    padding:15px 0;
+}
+
+.social-icons img{
+    height:26px;
+    margin-left:8px;
 }
 </style>
 </head>
@@ -92,7 +143,6 @@ body{
         </div>
 
         <button class="pay-btn" onclick="processPayment()">Pay Now</button>
-
         <div id="status" class="status-msg"></div>
     </div>
 </div>
@@ -105,71 +155,106 @@ function processPayment(){
 
     setTimeout(function(){
         status.style.color = "red";
-        status.innerHTML = "Payment issue occurred. Transaction cancelled.<br>No amount has been debited.";
-    },3000);
+        status.innerHTML =
+          "Payment Failed: Due to a technical issue at the card gateway, " +
+                "the transaction has been cancelled. No amount has been debited.";
+    }, 3000);
 }
 </script>
 
-<!-- ================= GeM FOOTER (FULL – UNCHANGED) ================= -->
-<footer class="sec blbg" id="secfooter">
-<div class="cont footer-new">
+<!-- ================= FOOTER (LIKE SCREENSHOT) ================= -->
+<footer class="gem-footer">
+<div class="container">
+<div class="row">
 
-<div class="col-md-2 col-sm-6 col-xs-6">
-<div class="fm gem-fot list-inline secb">
+<div class="col-md-2 col-sm-4">
 <h6>WEB INFO</h6>
-<p><a href="https://gem.gov.in/terms-of-use" target="_blank">Terms of Use</a></p>
-<p><a href="https://gem.gov.in/websitePolicies">Website Policies</a></p>
-<p><a href="https://gem.gov.in/help">Document Help</a></p>
-<p><a href="https://gem.gov.in/sitemap">Sitemap</a></p>
-<p><a href="https://gem.gov.in/web-information-manager">Web Information Manager</a></p>
-</div>
+<a href="#">Terms of Use</a>
+<a href="#">Website Policies</a>
+<a href="#">Document Help</a>
+<a href="#">Sitemap</a>
+<a href="#">Web Information Manager</a>
 </div>
 
-<div class="col-md-2 col-sm-6 col-xs-6">
-<div class="fm gem-fot list-inline secb">
+<div class="col-md-2 col-sm-4">
 <h6>ABOUT GeM</h6>
-<p><a href="https://gem.gov.in/aboutus">Introduction to GeM</a></p>
-<p><a href="https://gem.gov.in/statistics">Statistics</a></p>
-<p><a href="https://gem.gov.in/RTI">Right to Information</a></p>
-<p><a href="https://gem.gov.in/latest">New on GeM</a></p>
-<p><a href="https://gem.gov.in/brand-gem">Brand GeM</a></p>
-</div>
-</div>
-
-<div class="col-md-2 col-sm-6 col-xs-6">
-<div class="fm gem-fot list-inline secb">
-<h6>Resources</h6>
-<p><a href="https://gem.gov.in/gem_hand_book">GeM Handbook</a></p>
-<p><a href="https://gem.gov.in/support/terms_conditions">Terms and Conditions</a></p>
-<p><a href="https://gem.gov.in/support/buyers">Policies/Manuals</a></p>
-</div>
+<a href="#">Introduction to GeM</a>
+<a href="#">Statistics</a>
+<a href="#">Right to Information</a>
+<a href="#">Analytics</a>
+<a href="#">New on GeM</a>
+<a href="#">Testimonials</a>
+<a href="#">Brand GeM</a>
 </div>
 
-<div class="col-md-2 col-sm-6 col-xs-6">
-<div class="fm gem-fot list-inline secb">
-<h6>Need Help?</h6>
-<p><a href="/userFaqs">FAQs</a></p>
-<p><a href="/feedback">Feedback</a></p>
-<p><a href="/gemtickets/create">Raise a Ticket</a></p>
-<p><a href="https://gem.gov.in/contactUs">Contact Us</a></p>
-</div>
+<div class="col-md-2 col-sm-4">
+<h6>NEWS & EVENTS</h6>
+<a href="#">Newsroom</a>
+<a href="#">Gallery</a>
+<a href="#">Latest Updates/Features</a>
+<a href="#">CCM Schedule</a>
+<a href="#">Forums</a>
 </div>
 
-<div class="clearfix"></div>
+<div class="col-md-2 col-sm-4">
+<h6>RESOURCES</h6>
+<a href="#">GeM Handbook</a>
+<a href="#">OM’s/Circulars</a>
+<a href="#">Terms and Conditions</a>
+<a href="#">Policies/Manuals</a>
+<a href="#">Miscellaneous</a>
+<a href="#">GeM Integration Toolkit</a>
+<a href="#">MoU's</a>
+</div>
 
-<div class="col-md-12">
-<p class="copyright-gem" style="text-align:center;font-size:12px;">
+<div class="col-md-2 col-sm-4">
+<h6>TRAINING</h6>
+<a href="#"><strong>Interactive Training Courses</strong></a>
+<a href="#">LMS</a>
+<a href="#">GeM Webinar</a>
+<a href="#">Training Module</a>
+<a href="#">Business Facilitators</a>
+<a href="#">GeM Logo</a>
+<a href="#">List of Suspended Sellers</a>
+</div>
+
+<div class="col-md-2 col-sm-4">
+<h6>NEED HELP ?</h6>
+<a href="#">FAQs</a>
+<a href="#">Feedback</a>
+<a href="#">Raise a Ticket</a>
+<a href="#">Contact Us</a>
+<a href="#">Careers</a>
+<a href="#">Useful links</a>
+</div>
+
+</div>
+
+<p style="text-align:center;margin-top:20px;font-size:12px;">
 This site is designed, developed and maintained by Managed Service Provider and is owned by Government e Marketplace (GeM)
 </p>
 </div>
 
+<div class="gem-footer-bottom">
+<img src="https://assets-bg.gem.gov.in/resources/images/dept-commerce.png">
+<img src="https://assets-bg.gem.gov.in/resources/images/digital-india.png">
+<img src="https://assets-bg.gem.gov.in/resources/images/gem-india.jpg">
+<img src="https://assets-bg.gem.gov.in/resources/upload/shared_doc/stqc1_1651680670.png">
 </div>
 
-<div class="footer-logo-bot sec">
-<div class="cont">
-<p class="copyright-gem" style="text-align:center;">
-© 2026 GeM All rights reserved
-</p>
+<div class="gem-footer-last">
+<div class="container">
+<div class="row">
+<div class="col-sm-9">
+Government e Marketplace is a 100 percent Government owned Section 8 company setup under the aegis of Department of Commerce, Ministry of Commerce and Industry.
+</div>
+<div class="col-sm-3 text-right social-icons">
+<img src="https://assets-bg.gem.gov.in/resources/images/facebook-icons.svg">
+<img src="https://assets-bg.gem.gov.in/resources/images/twitter-new-icon.png">
+<img src="https://assets-bg.gem.gov.in/resources/images/youtube_new-gem.svg">
+<img src="https://assets-bg.gem.gov.in/resources/images/inc-v1.svg">
+</div>
+</div>
 </div>
 </div>
 </footer>
